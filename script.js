@@ -14,18 +14,6 @@
     });
   }
 
-  // Nav switches to its translucent style while it sits over the hero
-  var nav = document.querySelector('.nav');
-  var hero = document.querySelector('.hero');
-  if (nav && hero) {
-    var navOnHero = function () {
-      nav.classList.toggle('is-on-hero', hero.getBoundingClientRect().bottom > 48);
-    };
-    navOnHero();
-    window.addEventListener('scroll', navOnHero, { passive: true });
-    window.addEventListener('resize', navOnHero);
-  }
-
   // Footer year
   var year = document.querySelector('.year');
   if (year) year.textContent = new Date().getFullYear();

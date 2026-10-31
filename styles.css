@@ -21,7 +21,6 @@
   /* Page + component surfaces */
   --page-bg: #ffffff;
   --page-grad: none;
-  --hero-bg: var(--hero-grad);
   --card-bg: #ffffff;
   --card-blur: none;
   --pill-bg: transparent;
@@ -36,12 +35,8 @@
   --nav-filter: none;
   --nav-shadow: 0 8px 30px -18px rgba(37, 46, 51, 0.35);
 
-  /* Hero (same in both themes) */
+  /* Slate gradient used behind the whole page in dark mode */
   --hero-grad: linear-gradient(105deg, #3f484f 0%, #55616b 42%, #7e8d99 78%, #9aaab6 100%);
-  --hero-ink: #ffffff;
-  --hero-soft: #e3e9ed;
-  --hero-tone: #d3dde3;
-  --hero-line: rgba(255, 255, 255, 0.22);
 
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -58,7 +53,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* Dark: the hero gradient runs down the whole page; content sits on
+    /* Dark: the slate gradient runs down the whole page; content sits on
        frosted slate panels so text keeps AA contrast over the light end. */
     --bg: #3f484f;
     --surface: #1a1f23;
@@ -76,7 +71,6 @@
     --page-soft: #ffffff;
     --page-bg: #3f484f;
     --page-grad: var(--hero-grad);
-    --hero-bg: transparent;
     --card-bg: rgba(26, 31, 35, 0.62);
     --card-blur: blur(16px);
     --pill-bg: rgba(26, 31, 35, 0.5);
@@ -95,7 +89,7 @@
 }
 
 :root[data-theme="dark"] {
-  /* Dark: the hero gradient runs down the whole page; content sits on
+  /* Dark: the slate gradient runs down the whole page; content sits on
      frosted slate panels so text keeps AA contrast over the light end. */
   --bg: #3f484f;
   --surface: #1a1f23;
@@ -113,7 +107,6 @@
   --page-soft: #ffffff;
   --page-bg: #3f484f;
   --page-grad: var(--hero-grad);
-  --hero-bg: transparent;
   --card-bg: rgba(26, 31, 35, 0.62);
   --card-blur: blur(16px);
   --pill-bg: rgba(26, 31, 35, 0.5);
@@ -282,22 +275,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   :root:not([data-theme="light"]) .icon-moon { display: block; }
 }
 
-/* Over the hero: translucent pill. The backdrop is dimmed slightly so the
-   white links keep AA contrast over the lighter end of the gradient. */
-.nav.is-on-hero .nav__inner {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: none;
-  backdrop-filter: blur(14px) brightness(0.78);
-  -webkit-backdrop-filter: blur(14px) brightness(0.78);
-}
-.nav.is-on-hero .nav__mark,
-.nav.is-on-hero .theme-toggle { color: var(--hero-ink); }
-.nav.is-on-hero .nav__links a { color: var(--hero-ink); }
-.nav.is-on-hero .nav__links a:hover,
-.nav.is-on-hero .theme-toggle:hover { background: rgba(255, 255, 255, 0.12); }
-.nav.is-on-hero .nav__links a.is-active { background: #ffffff; color: #252e33; }
-
 /* ==========================================================================
    Hero
    ========================================================================== */
@@ -306,8 +283,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   display: flex;
   align-items: center;
   padding: 140px 0 96px;
-  background: var(--hero-bg);
-  color: var(--hero-ink);
 }
 
 .hero__title {
@@ -315,17 +290,29 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   font-size: clamp(60px, 10vw, 148px);
   line-height: 0.95;
   letter-spacing: -0.035em;
-  color: var(--hero-ink);
+  color: var(--ink);
 }
-.hero__title em { color: var(--hero-tone); }
+.hero__title em { color: var(--tone); }
 
 .hero__lede {
   margin-top: 32px;
   max-width: 30ch;
   font-size: clamp(20px, 2.1vw, 24px);
   line-height: 1.45;
-  color: var(--hero-soft);
+  color: var(--body);
 }
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.hero__meta strong { font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hero__meta .sep { opacity: 0.6; }
 
 .hero__cta {
   display: flex;
@@ -333,29 +320,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   gap: 12px;
   margin-top: 40px;
 }
-
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 64px;
-}
-.stat {
-  display: flex;
-  flex-direction: column-reverse;   /* value above label */
-  gap: 2px;
-  padding-right: 36px;
-}
-.stat + .stat {
-  padding-left: 36px;
-  border-left: 1px solid var(--hero-line);
-}
-.stat__value {
-  font-size: 19px;
-  font-weight: 400;
-  color: var(--hero-ink);
-  font-variant-numeric: tabular-nums;
-}
-.stat__label { font-size: 15px; color: var(--hero-soft); }
 
 /* ==========================================================================
    Buttons
@@ -374,20 +338,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: none; }
 
-.btn--hero {
-  padding: 17px 30px;
-  background: #ffffff;
-  color: #252e33;
-  font-weight: 500;
-}
-.btn--hero-soft {
-  padding: 17px 30px;
-  background: rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-  font-weight: 500;
-}
-.btn--hero-soft:hover { background: rgba(255, 255, 255, 0.24); }
-
 .btn--solid { background: var(--ink); color: var(--on-ink); font-weight: 500; }
 .btn--ghost { background: var(--pill-bg); border-color: var(--chip-border); color: var(--ink); }
 .btn--ghost:hover { border-color: var(--border-strong); }
@@ -396,8 +346,10 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* ==========================================================================
    Sections
    ========================================================================== */
-.section { padding: clamp(88px, 12vw, 136px) 0 0; }
-.section:last-child { padding-bottom: clamp(88px, 12vw, 136px); }
+.section {
+  padding: clamp(80px, 11vw, 128px) 0;
+  border-top: 1px solid var(--border);
+}
 
 .section__top {
   text-align: center;
@@ -554,7 +506,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 /* Dark mode: the story sits straight on the gradient, so the light end is
    gently dimmed across the section (faded top and bottom, no visible edge)
    to keep the text at AA contrast. */
-#about { position: relative; isolation: isolate; padding-bottom: 72px; }
+#about { position: relative; isolation: isolate; }
 #about::before {
   content: "";
   position: absolute;
@@ -629,15 +581,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 @media (max-width: 700px) {
   /* Narrow screens span the whole gradient, so keep the light end darker
-     to hold AA contrast for the hero text. */
+     to hold AA contrast for text in dark mode. */
   :root { --hero-grad: linear-gradient(105deg, #3f484f 0%, #4b565f 50%, #58646e 100%); }
   .hero {
     min-height: 0;
     padding: 168px 0 72px;
   }
-  .stats { margin-top: 48px; }
-  .stat { padding-right: 24px; }
-  .stat + .stat { padding-left: 24px; }
 }
 
 @media (max-width: 560px) {
@@ -656,8 +605,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .nav__links a { padding: 6px 10px; font-size: 13px; }
   .rail { padding: 0; border: 0; }
   .entry { padding: 24px; border-radius: 18px; }
-  .btn--hero, .btn--hero-soft { padding: 15px 24px; }
   .footer__inner { flex-direction: column; }
+  .hero__meta { gap: 8px; font-size: 13.5px; }
+  .btn--lg { padding: 14px 22px; font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -671,4 +621,4 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 
 /* 404 page */
-.eyebrow--hero { color: var(--hero-soft); border-color: var(--hero-line); margin-bottom: 28px; }
+.hero .eyebrow { margin-bottom: 28px; }
