@@ -441,6 +441,29 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .entry__meta { margin-top: 12px; font-size: 15px; color: var(--muted); }
 .entry__desc { margin-top: 6px; max-width: 62ch; color: var(--body); }
 
+/* Compact rows (Muse page) */
+.ledger--compact .entry__side { padding: 24px 24px 24px 0; gap: 10px; }
+.ledger--compact .entry__main { padding-top: 24px; padding-bottom: 24px; }
+.ledger--compact .entry__title { font-size: clamp(26px, 2.8vw, 34px); }
+.ledger--compact .entry__meta { margin-top: 8px; }
+.ledger--compact .chips { margin-top: 14px; }
+
+/* Standalone page header (Muse) */
+.page-head { padding: 180px 0 clamp(64px, 9vw, 104px); }
+.page-head__title {
+  font-family: var(--serif);
+  font-size: clamp(64px, 10vw, 140px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.page-head__lede {
+  margin-top: 24px;
+  font-size: clamp(20px, 2.1vw, 24px);
+  line-height: 1.45;
+  color: var(--body);
+}
+
 /* Outlined tag pills */
 .chips {
   display: flex;
@@ -568,6 +591,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
     border-right: 0;
   }
   .entry__main { padding: 16px 0 28px; }
+  .ledger--compact .entry__side { padding: 20px 0 0; }
+  .ledger--compact .entry__main { padding: 10px 0 20px; }
+  .page-head { padding-top: 168px; }
 }
 
 @media (max-width: 700px) {
@@ -592,11 +618,17 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
     border-radius: 24px;
   }
   .nav__inner > nav { order: 3; flex-basis: 100%; }
-  .nav__links { justify-content: space-between; }
-  .nav__links a { padding: 6px 10px; font-size: 13px; }
+  .nav__links { flex-wrap: wrap; justify-content: space-between; gap: 0; }
+  .nav__links a { padding: 6px 7px; font-size: 12.5px; }
   .footer__inner { flex-direction: column; }
   .hero__meta { gap: 8px; font-size: 13.5px; }
   .btn--lg { padding: 14px 22px; font-size: 15px; }
+}
+
+/* Very narrow phones: the menu may wrap to a third line */
+@media (max-width: 370px) {
+  .nav__links { justify-content: center; }
+  .hero, .page-head { padding-top: 200px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

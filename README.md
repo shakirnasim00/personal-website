@@ -6,6 +6,7 @@ Plain HTML, CSS and JS. There's no build step and nothing to install.
 
 ```
 index.html    page content (look for TODO comments)
+muse.html     Muse page: books, articles and pursuits (look for TODO comments)
 styles.css    design tokens (colors, fonts) at the top, light + dark themes
 script.js     theme toggle, local clock, scroll reveals
 404.html      not-found page

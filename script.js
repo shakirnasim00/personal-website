@@ -52,8 +52,10 @@
   }
 
   // Highlight the nav link for the section in view
-  var links = document.querySelectorAll('.nav__links a');
-  var sections = Array.prototype.map.call(links, function (a) {
+  var links = Array.prototype.filter.call(document.querySelectorAll('.nav__links a'), function (a) {
+    return a.getAttribute('href').charAt(0) === '#';
+  });
+  var sections = links.map(function (a) {
     return document.querySelector(a.getAttribute('href'));
   });
   if ('IntersectionObserver' in window) {
