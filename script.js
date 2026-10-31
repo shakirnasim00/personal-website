@@ -14,6 +14,32 @@
     });
   }
 
+  // Mobile menu
+  var nav = document.querySelector('.nav');
+  var menuBtn = document.querySelector('.nav__menu');
+  if (nav && menuBtn) {
+    var setMenu = function (open) {
+      nav.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    menuBtn.addEventListener('click', function () {
+      setMenu(!nav.classList.contains('is-open'));
+    });
+    nav.querySelectorAll('.nav__links a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('is-open') && !nav.contains(e.target)) setMenu(false);
+    });
+    window.matchMedia('(min-width: 641px)').addEventListener('change', function (e) {
+      if (e.matches) setMenu(false);
+    });
+  }
+
   // Footer year
   var year = document.querySelector('.year');
   if (year) year.textContent = new Date().getFullYear();
@@ -52,8 +78,10 @@
   }
 
   // Highlight the nav link for the section in view
-  var links = document.querySelectorAll('.nav__links a');
-  var sections = Array.prototype.map.call(links, function (a) {
+  var links = Array.prototype.filter.call(document.querySelectorAll('.nav__links a'), function (a) {
+    return a.getAttribute('href').charAt(0) === '#';
+  });
+  var sections = links.map(function (a) {
     return document.querySelector(a.getAttribute('href'));
   });
   if ('IntersectionObserver' in window) {

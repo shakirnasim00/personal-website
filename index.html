@@ -4,23 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shakir Nasim</title>
-  <meta name="description" content="Shakir Nasim — personal website. Work, projects, and ways to get in touch." />
-  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Shakir Nasim — founder of Circle, based in Vancouver, BC. Building products at the intersection of business and technology." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#3F484F" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://shakirnasim.com/" />
 
   <!-- Open Graph / social previews -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://shakirnasim.com/" />
   <meta property="og:title" content="Shakir Nasim" />
-  <meta property="og:description" content="Work, projects, and ways to get in touch." />
+  <meta property="og:description" content="Founder of Circle, based in Vancouver, BC." />
+  <meta property="og:image" content="https://shakirnasim.com/assets/shakir.jpg" />
   <meta name="twitter:card" content="summary" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 
   <!-- Apply saved theme before paint to avoid a flash -->
   <script>
@@ -34,13 +35,19 @@
     <div class="nav__inner">
       <a class="nav__mark" href="#top" aria-label="Home">SN</a>
       <nav aria-label="Primary">
-        <ul class="nav__links">
+        <ul class="nav__links" id="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#writing">Writing</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="/muse.html">Muse</a></li>
         </ul>
       </nav>
+      <button class="nav__menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
       <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
@@ -51,29 +58,22 @@
   <main id="main">
     <!-- ───────────── Hero ───────────── -->
     <section class="hero" id="top">
-      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow reveal">
-          <span class="status-dot" aria-hidden="true"></span>
-          Open to new conversations
-        </p>
         <h1 class="hero__title reveal">
           Shakir <em>Nasim</em>
         </h1>
-        <!-- TODO: replace with your one-line positioning statement -->
         <p class="hero__lede reveal">
-          I build thoughtful products at the intersection of technology, design, and people —
-          and I care about making complex things feel simple.
+          I build products, work at the intersection of business and technology,
+          explore new ideas, and share what I learn along the way.
         </p>
         <div class="hero__meta reveal">
-          <!-- TODO: set your city and IANA timezone (data-tz) -->
-          <span>Based in <strong>Your City</strong></span>
+          <span>Based in <strong>Vancouver, BC</strong></span>
           <span class="sep" aria-hidden="true">/</span>
-          <span>Local time <strong class="clock" data-tz="America/New_York">--:--</strong></span>
+          <span>Local time <strong class="clock" data-tz="America/Vancouver">--:--</strong></span>
         </div>
         <div class="hero__cta reveal">
-          <a class="btn btn--solid" href="#contact">Get in touch</a>
-          <a class="btn btn--ghost" href="#work">See my work <span aria-hidden="true">→</span></a>
+          <a class="btn btn--solid btn--lg" href="#contact">Get in touch</a>
+          <a class="btn btn--ghost btn--lg" href="#writing">Read my writing <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -84,115 +84,160 @@
         <header class="section__head reveal">
           <span class="section__num">01</span>
           <h2 class="section__title">About</h2>
+          <picture class="avatar">
+            <source srcset="assets/shakir.webp" type="image/webp" />
+            <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
+          </picture>
         </header>
         <div class="prose reveal">
-          <!-- TODO: your story in 2–3 short paragraphs -->
           <p class="prose__lead">
-            Hi, I'm Shakir. I'm a <em>[your role]</em> who enjoys turning ambiguous problems into
-            clear, well-crafted solutions.
+            I founded Circle, a healthier social media alternative aimed at solving
+            algorithmic addiction and fostering <em>real-life</em> connection.
           </p>
           <p>
-            Over the past few years I've worked across [industries / disciplines], leading
-            [types of work]. I'm happiest when I'm close to the people I'm building for and
-            can see the impact of the work first-hand.
+            I'm also a Business Development Representative at Corporate Traveller,
+            where I find, research, and qualify B2B leads.
           </p>
           <p>
-            Outside of work you'll find me [a hobby], [another hobby], or exploring a new city
-            one coffee shop at a time.
+            Every project I take on follows one principle: make the human
+            experience better.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ───────────── Work ───────────── -->
-    <section class="section" id="work">
-      <div class="container grid-2">
-        <header class="section__head reveal">
-          <span class="section__num">02</span>
-          <h2 class="section__title">Experience</h2>
-        </header>
-        <!-- TODO: replace with your real roles (newest first) -->
-        <ol class="timeline">
-          <li class="timeline__item reveal">
-            <span class="timeline__date">2023 — Now</span>
-            <div>
-              <h3 class="timeline__role">Role Title <span class="at">at</span> Company</h3>
-              <p>One line on the scope of the role and the most meaningful outcome you drove.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__date">2020 — 2023</span>
-            <div>
-              <h3 class="timeline__role">Role Title <span class="at">at</span> Company</h3>
-              <p>One line on the scope of the role and the most meaningful outcome you drove.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__date">2017 — 2020</span>
-            <div>
-              <h3 class="timeline__role">Role Title <span class="at">at</span> Company</h3>
-              <p>One line on the scope of the role and the most meaningful outcome you drove.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
     <!-- ───────────── Projects ───────────── -->
     <section class="section" id="projects">
-      <div class="container grid-2">
-        <header class="section__head reveal">
-          <span class="section__num">03</span>
-          <h2 class="section__title">Selected projects</h2>
+      <div class="container">
+        <header class="section__intro reveal">
+          <span class="section__num">02</span>
+          <h2 class="section__title">Projects</h2>
         </header>
-        <!-- TODO: link each project to a live site, repo, or case study -->
-        <ul class="projects">
+        <ul class="ledger">
           <li class="reveal">
-            <a class="project" href="#">
-              <span class="project__year">2025</span>
-              <span class="project__body">
-                <span class="project__name">Project One</span>
-                <span class="project__desc">A short description of what it is and why it matters.</span>
-              </span>
-              <span class="project__arrow" aria-hidden="true">↗</span>
+            <a class="entry entry--link" href="https://circlesocialmedia.ca/" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark is-current">Founder</span>
+                <span class="entry__type">Project</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">Circle <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Mobile app · circlesocialmedia.ca</p>
+                <p class="entry__desc">A healthier social media alternative aimed at solving algorithmic addiction and fostering real-life connection.</p>
+                <ul class="chips"><li>Business</li><li>Product</li><li>Developer</li></ul>
+              </div>
             </a>
           </li>
           <li class="reveal">
-            <a class="project" href="#">
-              <span class="project__year">2024</span>
-              <span class="project__body">
-                <span class="project__name">Project Two</span>
-                <span class="project__desc">A short description of what it is and why it matters.</span>
-              </span>
-              <span class="project__arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-          <li class="reveal">
-            <a class="project" href="#">
-              <span class="project__year">2023</span>
-              <span class="project__body">
-                <span class="project__name">Project Three</span>
-                <span class="project__desc">A short description of what it is and why it matters.</span>
-              </span>
-              <span class="project__arrow" aria-hidden="true">↗</span>
+            <a class="entry entry--link" href="https://auctusbudget.com/" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark">Builder</span>
+                <span class="entry__type">Project</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">Auctus <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Web app · auctusbudget.com</p>
+                <p class="entry__desc">A web application for budgeting and tracking monthly savings.</p>
+                <ul class="chips"><li>Product</li><li>Developer</li></ul>
+              </div>
             </a>
           </li>
         </ul>
       </div>
     </section>
 
+    <!-- ───────────── Experience ───────────── -->
+    <section class="section" id="work">
+      <div class="container">
+        <header class="section__intro reveal">
+          <span class="section__num">03</span>
+          <h2 class="section__title">Experience</h2>
+        </header>
+        <ol class="ledger">
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark is-current">2025 to now</span>
+              <span class="entry__type">Work</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Corporate Traveller</h3>
+              <p class="entry__meta">Business Development Representative · Vancouver, BC</p>
+              <p class="entry__desc">Finding, researching, and qualifying B2B leads. Top BDR nationwide in my first year and invited to President's Club.</p>
+              <ul class="chips"><li>Sales</li><li>B2B</li><li>Business development</li></ul>
+            </div>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark">2024 to 2025</span>
+              <span class="entry__type">Work</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Checkfront</h3>
+              <p class="entry__meta">Technical Support Specialist · Victoria, BC</p>
+              <p class="entry__desc">Supporting a SaaS booking platform across APIs and integrations, with a 95%+ satisfaction rating.</p>
+              <ul class="chips"><li>SaaS</li><li>Support</li><li>APIs</li></ul>
+            </div>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark is-current">2023 to now</span>
+              <span class="entry__type">Education</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Thompson Rivers University</h3>
+              <p class="entry__meta">Kamloops, BC</p>
+              <p class="entry__desc">Bachelor of Computer Science.</p>
+              <ul class="chips"><li>Education</li><li>Business</li><li>Computer science</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────── Writing ───────────── -->
+    <section class="section" id="writing">
+      <div class="container">
+        <header class="section__intro reveal">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Writing</h2>
+        </header>
+        <!-- Add new Substack posts to the top of this list -->
+        <ul class="ledger">
+          <li class="reveal">
+            <a class="entry entry--link" href="https://shakirnasim.substack.com/p/how-overconsumption-is-killing-us" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark is-current">Latest</span>
+                <span class="entry__type">Essay</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">The faster we consume, the slower we feel <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Substack</p>
+                <ul class="chips"><li>Consumption</li><li>Culture</li><li>Mental health</li></ul>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a class="btn btn--ghost ledger__more reveal" href="https://substack.com/@shakirnasim" target="_blank" rel="noopener">
+          Read everything on Substack <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
     <!-- ───────────── Contact ───────────── -->
     <section class="section contact" id="contact">
       <div class="container">
-        <span class="section__num reveal">04</span>
-        <h2 class="contact__title reveal">Let's make something <em>good</em>.</h2>
-        <!-- TODO: set your real email address -->
-        <a class="contact__email reveal" href="mailto:hello@shakirnasim.com">hello@shakirnasim.com</a>
-        <!-- TODO: update or remove social links -->
+        <header class="section__top reveal">
+          <span class="eyebrow">05 · Contact</span>
+          <h2 class="section__title">Let's <em>connect.</em></h2>
+        </header>
+        <div class="contact__cta reveal">
+          <a class="btn btn--solid btn--lg" href="mailto:shak.nasim@gmail.com">Email <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--ghost btn--lg" href="https://www.linkedin.com/in/shakir-nasim-a272b7203/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
         <ul class="socials reveal">
-          <li><a href="https://www.linkedin.com/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/shakir-nasim-a272b7203/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://substack.com/@shakirnasim" rel="me noopener" target="_blank">Substack</a></li>
           <li><a href="https://github.com/shakirnasim00" rel="me noopener" target="_blank">GitHub</a></li>
-          <li><a href="https://x.com/" rel="me noopener" target="_blank">X / Twitter</a></li>
         </ul>
       </div>
     </section>
@@ -200,11 +245,11 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span>© <span class="year"></span> Shakir Nasim</span>
+      <span>© <span class="year"></span> Shakir Nasim · Vancouver, BC</span>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=12" defer></script>
 </body>
 </html>
