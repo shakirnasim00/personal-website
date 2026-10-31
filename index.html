@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shakir Nasim</title>
   <meta name="description" content="Shakir Nasim — founder of Circle, based in Vancouver, BC. Building products, writing about modern life." />
-  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#3F484F" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#3F484F" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://shakirnasim.com/" />
 
   <!-- Open Graph / social previews -->
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 
   <!-- Apply saved theme before paint to avoid a flash -->
   <script>
@@ -53,7 +53,6 @@
   <main id="main">
     <!-- ───────────── Hero ───────────── -->
     <section class="hero" id="top">
-      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container">
         <h1 class="hero__title reveal">
           Shakir <em>Nasim</em>
@@ -62,42 +61,51 @@
           I build products people actually want to use, and write about
           how we live, work, and consume.
         </p>
-        <div class="hero__meta reveal">
-          <span>Based in <strong>Vancouver, BC</strong></span>
-          <span class="sep" aria-hidden="true">/</span>
-          <span>Local time <strong class="clock" data-tz="America/Vancouver">--:--</strong></span>
-        </div>
         <div class="hero__cta reveal">
-          <a class="btn btn--solid" href="#contact">Get in touch</a>
-          <a class="btn btn--ghost" href="#writing">Read my writing <span aria-hidden="true">→</span></a>
+          <a class="btn btn--hero" href="#contact">Get in touch</a>
+          <a class="btn btn--hero-soft" href="#writing">Read my writing <span aria-hidden="true">→</span></a>
         </div>
+        <dl class="stats reveal">
+          <div class="stat">
+            <dt class="stat__label">Where I'm based</dt>
+            <dd class="stat__value">Vancouver, BC</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Local time</dt>
+            <dd class="stat__value clock" data-tz="America/Vancouver">--:--</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
     <!-- ───────────── About ───────────── -->
     <section class="section" id="about">
-      <div class="container grid-2">
-        <header class="section__head reveal">
-          <span class="section__num">01</span>
-          <h2 class="section__title">About</h2>
-          <picture class="avatar">
-            <source srcset="assets/shakir.webp" type="image/webp" />
-            <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
-          </picture>
+      <div class="container">
+        <header class="section__top reveal">
+          <span class="eyebrow">01 · About</span>
+          <h2 class="section__title">A little <em>about me.</em></h2>
         </header>
-        <div class="prose reveal">
-          <p class="prose__lead">
-            I founded Circle, a healthier social media alternative aimed at solving
-            algorithmic addiction and fostering <em>real-life</em> connection.
-          </p>
-          <p>
-            I'm also a Business Development Representative at Corporate Traveller,
-            where I find, research, and qualify B2B leads.
-          </p>
-          <p>
-            Every project I take on follows one principle: make the human
-            experience better.
-          </p>
+        <div class="rail">
+          <div class="about reveal">
+            <picture class="avatar">
+              <source srcset="assets/shakir.webp" type="image/webp" />
+              <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
+            </picture>
+            <div class="prose">
+              <p class="prose__lead">
+                I founded Circle, a healthier social media alternative aimed at solving
+                algorithmic addiction and fostering <em>real-life</em> connection.
+              </p>
+              <p>
+                I'm also a Business Development Representative at Corporate Traveller,
+                where I find, research, and qualify B2B leads.
+              </p>
+              <p>
+                Every project I take on follows one principle: make the human
+                experience better.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -106,10 +114,10 @@
     <section class="section" id="projects">
       <div class="container">
         <header class="section__top reveal">
-          <span class="section__num">02</span>
-          <h2 class="section__title">Projects</h2>
+          <span class="eyebrow">02 · Projects</span>
+          <h2 class="section__title">Things I've <em>built.</em></h2>
         </header>
-        <ul class="ledger">
+        <ul class="rail cards">
           <li class="reveal">
             <a class="entry entry--link" href="https://circlesocialmedia.ca/" target="_blank" rel="noopener">
               <div class="entry__side">
@@ -146,10 +154,10 @@
     <section class="section" id="work">
       <div class="container">
         <header class="section__top reveal">
-          <span class="section__num">03</span>
-          <h2 class="section__title">Experience</h2>
+          <span class="eyebrow">03 · Experience</span>
+          <h2 class="section__title">Where I've <em>worked.</em></h2>
         </header>
-        <ol class="ledger">
+        <ol class="rail cards">
           <li class="entry reveal">
             <div class="entry__side">
               <span class="entry__mark is-current">2025 to now</span>
@@ -194,11 +202,11 @@
     <section class="section" id="writing">
       <div class="container">
         <header class="section__top reveal">
-          <span class="section__num">04</span>
-          <h2 class="section__title">Writing</h2>
+          <span class="eyebrow">04 · Writing</span>
+          <h2 class="section__title">Things I've <em>written.</em></h2>
         </header>
         <!-- Add new Substack posts to the top of this list -->
-        <ul class="ledger">
+        <ul class="rail cards">
           <li class="reveal">
             <a class="entry entry--link" href="https://shakirnasim.substack.com/p/how-overconsumption-is-killing-us" target="_blank" rel="noopener">
               <div class="entry__side">
@@ -212,18 +220,22 @@
               </div>
             </a>
           </li>
+          <li class="cards__more reveal">
+            <a class="btn btn--ghost" href="https://substack.com/@shakirnasim" target="_blank" rel="noopener">
+              Read everything on Substack <span aria-hidden="true">↗</span>
+            </a>
+          </li>
         </ul>
-        <a class="btn btn--ghost ledger__more reveal" href="https://substack.com/@shakirnasim" target="_blank" rel="noopener">
-          Read everything on Substack <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </section>
 
     <!-- ───────────── Contact ───────────── -->
     <section class="section contact" id="contact">
       <div class="container">
-        <span class="section__num reveal">05</span>
-        <h2 class="contact__title reveal">Let's <em>connect</em>.</h2>
+        <header class="section__top reveal">
+          <span class="eyebrow">05 · Contact</span>
+          <h2 class="section__title">Let's <em>connect.</em></h2>
+        </header>
         <div class="contact__cta reveal">
           <a class="btn btn--solid btn--lg" href="mailto:shak.nasim@gmail.com">Email <span aria-hidden="true">↗</span></a>
           <a class="btn btn--ghost btn--lg" href="https://www.linkedin.com/in/shakir-nasim-a272b7203/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
@@ -244,6 +256,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5" defer></script>
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>
