@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Apply saved theme before paint to avoid a flash -->
@@ -54,32 +54,24 @@
     <!-- ───────────── Hero ───────────── -->
     <section class="hero" id="top">
       <div class="hero__glow" aria-hidden="true"></div>
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="hero__kicker reveal">Founder of <strong>Circle</strong></p>
-          <h1 class="hero__title reveal">
-            Shakir <em>Nasim</em>
-          </h1>
-          <p class="hero__lede reveal">
-            I build products people actually want to use, and write about
-            how we live, work, and consume.
-          </p>
-          <div class="hero__meta reveal">
-            <span>Based in <strong>Vancouver, BC</strong></span>
-            <span class="sep" aria-hidden="true">/</span>
-            <span>Local time <strong class="clock" data-tz="America/Vancouver">--:--</strong></span>
-          </div>
-          <div class="hero__cta reveal">
-            <a class="btn btn--solid" href="#contact">Get in touch</a>
-            <a class="btn btn--ghost" href="#writing">Read my writing <span aria-hidden="true">→</span></a>
-          </div>
+      <div class="container">
+        <p class="hero__kicker reveal">Founder of <strong>Circle</strong></p>
+        <h1 class="hero__title reveal">
+          Shakir <em>Nasim</em>
+        </h1>
+        <p class="hero__lede reveal">
+          I build products people actually want to use, and write about
+          how we live, work, and consume.
+        </p>
+        <div class="hero__meta reveal">
+          <span>Based in <strong>Vancouver, BC</strong></span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>Local time <strong class="clock" data-tz="America/Vancouver">--:--</strong></span>
         </div>
-        <figure class="hero__photo reveal">
-          <picture>
-            <source srcset="assets/shakir.webp" type="image/webp" />
-            <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
-          </picture>
-        </figure>
+        <div class="hero__cta reveal">
+          <a class="btn btn--solid" href="#contact">Get in touch</a>
+          <a class="btn btn--ghost" href="#writing">Read my writing <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -89,22 +81,23 @@
         <header class="section__head reveal">
           <span class="section__num">01</span>
           <h2 class="section__title">About</h2>
+          <picture class="avatar">
+            <source srcset="assets/shakir.webp" type="image/webp" />
+            <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
+          </picture>
         </header>
         <div class="prose reveal">
           <p class="prose__lead">
-            I'm a founder and builder from Vancouver who likes turning a clear problem
-            into a product people <em>reach for</em>.
+            I founded Circle, a healthier social media alternative aimed at solving
+            algorithmic addiction and fostering <em>real-life</em> connection.
           </p>
           <p>
-            I studied Computer Science at Thompson Rivers University, where I also spent three
-            seasons on the varsity basketball team and was named a CCAA Academic All-Canadian.
-            Sport taught me most of what I know about pace, preparation, and owning outcomes.
+            I'm also a Business Development Representative at Corporate Traveller,
+            where I find, research, and qualify B2B leads.
           </p>
           <p>
-            Today I'm building Circle, a healthier alternative to social media, which I
-            researched, designed, and shipped myself on iOS. Alongside it I lead outbound
-            sales at Corporate Traveller, and I write on Substack about consumption, attention,
-            and modern life.
+            Every project I take on follows one principle: how do I make the human
+            experience better?
           </p>
         </div>
       </div>
@@ -112,30 +105,38 @@
 
     <!-- ───────────── Projects ───────────── -->
     <section class="section" id="projects">
-      <div class="container grid-2">
-        <header class="section__head reveal">
+      <div class="container">
+        <header class="section__top reveal">
           <span class="section__num">02</span>
           <h2 class="section__title">Projects</h2>
         </header>
-        <ul class="projects">
+        <ul class="ledger">
           <li class="reveal">
-            <a class="project" href="https://circlesocialmedia.ca/" target="_blank" rel="noopener">
-              <span class="project__year">Founder</span>
-              <span class="project__body">
-                <span class="project__name">Circle</span>
-                <span class="project__desc">A healthier social media alternative. A native iOS app I researched, designed, and shipped end-to-end.</span>
-              </span>
-              <span class="project__arrow" aria-hidden="true">↗</span>
+            <a class="entry entry--link" href="https://circlesocialmedia.ca/" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark is-current">Founder</span>
+                <span class="entry__type">Project</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">Circle <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">iOS app · circlesocialmedia.ca</p>
+                <p class="entry__desc">A healthier social media alternative aimed at solving algorithmic addiction and fostering real-life connection.</p>
+                <ul class="chips"><li>Social</li><li>iOS</li><li>Product</li></ul>
+              </div>
             </a>
           </li>
           <li class="reveal">
-            <a class="project" href="https://auctusbudget.com/" target="_blank" rel="noopener">
-              <span class="project__year">Web app</span>
-              <span class="project__body">
-                <span class="project__name">Auctus</span>
-                <span class="project__desc">A web application for budgeting and tracking monthly savings.</span>
-              </span>
-              <span class="project__arrow" aria-hidden="true">↗</span>
+            <a class="entry entry--link" href="https://auctusbudget.com/" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark">Builder</span>
+                <span class="entry__type">Project</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">Auctus <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Web app · auctusbudget.com</p>
+                <p class="entry__desc">A web application for budgeting and tracking monthly savings.</p>
+                <ul class="chips"><li>Personal finance</li><li>Web app</li><li>Budgeting</li></ul>
+              </div>
             </a>
           </li>
         </ul>
@@ -144,55 +145,76 @@
 
     <!-- ───────────── Writing ───────────── -->
     <section class="section" id="writing">
-      <div class="container grid-2">
-        <header class="section__head reveal">
+      <div class="container">
+        <header class="section__top reveal">
           <span class="section__num">03</span>
           <h2 class="section__title">Writing</h2>
         </header>
-        <div>
-          <!-- Add new Substack posts to the top of this list -->
-          <ul class="posts">
-            <li class="reveal">
-              <a class="post" href="https://shakirnasim.substack.com/p/how-overconsumption-is-killing-us" target="_blank" rel="noopener">
-                <span class="post__title">How Overconsumption Is Killing Us</span>
-                <span class="post__meta">Substack <span aria-hidden="true">↗</span></span>
-              </a>
-            </li>
-          </ul>
-          <a class="text-link reveal" href="https://substack.com/@shakirnasim" target="_blank" rel="noopener">
-            Read everything on Substack <span aria-hidden="true">→</span>
-          </a>
-        </div>
+        <!-- Add new Substack posts to the top of this list -->
+        <ul class="ledger">
+          <li class="reveal">
+            <a class="entry entry--link" href="https://shakirnasim.substack.com/p/how-overconsumption-is-killing-us" target="_blank" rel="noopener">
+              <div class="entry__side">
+                <span class="entry__mark is-current">Latest</span>
+                <span class="entry__type">Essay</span>
+              </div>
+              <div class="entry__main">
+                <h3 class="entry__title">How Overconsumption Is Killing Us <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Substack</p>
+                <ul class="chips"><li>Consumption</li><li>Culture</li><li>Wellbeing</li></ul>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a class="btn btn--ghost ledger__more reveal" href="https://substack.com/@shakirnasim" target="_blank" rel="noopener">
+          Read everything on Substack <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
 
-    <!-- ───────────── Work ───────────── -->
+    <!-- ───────────── Experience ───────────── -->
     <section class="section" id="work">
-      <div class="container grid-2">
-        <header class="section__head reveal">
+      <div class="container">
+        <header class="section__top reveal">
           <span class="section__num">04</span>
           <h2 class="section__title">Experience</h2>
         </header>
-        <ol class="roles">
-          <li class="role reveal">
-            <span class="role__org">Corporate Traveller</span>
-            <span class="role__title">Sales Development Representative</span>
-            <span class="role__date">2025 — Now</span>
+        <ol class="ledger">
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark is-current">2025 to now</span>
+              <span class="entry__type">Work</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Corporate Traveller</h3>
+              <p class="entry__meta">Business Development Representative · Vancouver, BC</p>
+              <p class="entry__desc">Finding, researching, and qualifying B2B leads. Top SDR nationwide in my first year and invited to President's Club.</p>
+              <ul class="chips"><li>Sales</li><li>B2B</li><li>Business development</li></ul>
+            </div>
           </li>
-          <li class="role reveal">
-            <span class="role__org">Circle</span>
-            <span class="role__title">Founder</span>
-            <span class="role__date">Ongoing</span>
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark">2024 to 2025</span>
+              <span class="entry__type">Work</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Checkfront</h3>
+              <p class="entry__meta">Technical Support Specialist · Victoria, BC (Remote)</p>
+              <p class="entry__desc">Supporting a SaaS booking platform across APIs and integrations, with a 95%+ satisfaction rating.</p>
+              <ul class="chips"><li>SaaS</li><li>Support</li><li>APIs</li></ul>
+            </div>
           </li>
-          <li class="role reveal">
-            <span class="role__org">Checkfront</span>
-            <span class="role__title">Technical Support Specialist</span>
-            <span class="role__date">2024 — 2025</span>
-          </li>
-          <li class="role reveal">
-            <span class="role__org">Thompson Rivers University</span>
-            <span class="role__title">B.Sc. Computer Science · Varsity Basketball</span>
-            <span class="role__date">Alumnus</span>
+          <li class="entry reveal">
+            <div class="entry__side">
+              <span class="entry__mark">Graduated</span>
+              <span class="entry__type">Education</span>
+            </div>
+            <div class="entry__main">
+              <h3 class="entry__title">Thompson Rivers University</h3>
+              <p class="entry__meta">Kamloops, BC</p>
+              <p class="entry__desc">Bachelor of Computer Science.</p>
+              <ul class="chips"><li>Education</li><li>Business</li><li>Computer science</li></ul>
+            </div>
           </li>
         </ol>
       </div>
@@ -204,7 +226,7 @@
         <span class="section__num reveal">05</span>
         <h2 class="contact__title reveal">Let's build something <em>good</em>.</h2>
         <div class="contact__cta reveal">
-          <a class="btn btn--solid btn--lg" href="mailto:shak.nasim@gmail.com">shak.nasim@gmail.com</a>
+          <a class="btn btn--solid btn--lg" href="mailto:shak.nasim@gmail.com">Email <span aria-hidden="true">↗</span></a>
           <a class="btn btn--ghost btn--lg" href="https://www.linkedin.com/in/shakir-nasim-a272b7203/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
         <ul class="socials reveal">
