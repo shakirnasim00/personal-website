@@ -11,9 +11,11 @@
   --accent: #b4532a;
   --glow-a: rgba(220, 140, 90, 0.28);
   --glow-b: rgba(120, 150, 220, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.65);
-  --glass-hi: rgba(255, 255, 255, 0.85);
-  --glass-shadow: rgba(22, 21, 19, 0.28);
+  --glass-fill: rgba(255, 255, 255, 0.14);
+  --glass-fill-hover: rgba(255, 255, 255, 0.32);
+  --glass-border: rgba(22, 21, 19, 0.14);
+  --glass-border-strong: rgba(22, 21, 19, 0.32);
+  --glass-hi: rgba(255, 255, 255, 0.7);
 
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,9 +39,11 @@
     --accent: #e8875a;
     --glow-a: rgba(232, 135, 90, 0.16);
     --glow-b: rgba(110, 140, 230, 0.14);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --glass-hi: rgba(255, 255, 255, 0.16);
-    --glass-shadow: rgba(0, 0, 0, 0.6);
+    --glass-fill: rgba(255, 255, 255, 0.03);
+    --glass-fill-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-border-strong: rgba(255, 255, 255, 0.34);
+    --glass-hi: rgba(255, 255, 255, 0.12);
     color-scheme: dark;
   }
 }
@@ -54,9 +58,11 @@
   --accent: #e8875a;
   --glow-a: rgba(232, 135, 90, 0.16);
   --glow-b: rgba(110, 140, 230, 0.14);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-hi: rgba(255, 255, 255, 0.16);
-  --glass-shadow: rgba(0, 0, 0, 0.6);
+  --glass-fill: rgba(255, 255, 255, 0.03);
+  --glass-fill-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-strong: rgba(255, 255, 255, 0.34);
+  --glass-hi: rgba(255, 255, 255, 0.12);
   color-scheme: dark;
 }
 
@@ -308,72 +314,33 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   margin-top: 40px;
 }
 
-/* Glass buttons: translucent fill, blurred backdrop, top highlight, hover sheen */
+/* Glass buttons: clear, thin, see-through. A hairline edge and a light backdrop blur */
 .btn {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 22px;
+  padding: 12px 22px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--glass-fill);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 var(--glass-hi),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
-    0 10px 30px -14px var(--glass-shadow);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
-    background-color 0.3s, border-color 0.3s, color 0.3s;
-}
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(180deg, var(--glass-hi), transparent 55%);
-  opacity: 0.55;
-  pointer-events: none;
-}
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 60%;
-  z-index: -1;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  transform: translateX(-140%) skewX(-18deg);
-  transition: transform 0.8s var(--ease);
-  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 var(--glass-hi);
+  transition: transform 0.4s var(--ease), background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 var(--glass-hi),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
-    0 18px 40px -16px var(--glass-shadow);
+  transform: translateY(-1px);
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-strong);
 }
-.btn:hover::after { transform: translateX(260%) skewX(-18deg); }
-.btn:active { transform: translateY(0); }
-
-.btn--solid {
-  background: color-mix(in srgb, var(--ink) 84%, transparent);
-  border-color: color-mix(in srgb, var(--ink) 40%, transparent);
-  color: var(--bg);
-}
-.btn--ghost {
-  background: color-mix(in srgb, var(--bg-elev) 40%, transparent);
-  color: var(--ink);
-}
-.btn--ghost:hover { background: color-mix(in srgb, var(--bg-elev) 65%, transparent); }
-.btn--lg { padding: 18px 30px; font-size: clamp(17px, 2vw, 22px); font-weight: 400; }
+.btn:active { transform: none; }
+/* Primary is still clear glass, just with a slightly firmer edge */
+.btn--solid { border-color: var(--glass-border-strong); font-weight: 500; }
+.btn--solid:hover { border-color: var(--ink); }
+.btn--lg { padding: 16px 28px; font-size: clamp(17px, 2vw, 22px); }
 
 /* ==========================================================================
    Sections
