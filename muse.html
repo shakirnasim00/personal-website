@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=11" />
+  <link rel="stylesheet" href="/styles.css?v=12" />
 
   <!-- Apply saved theme before paint to avoid a flash -->
   <script>
@@ -35,7 +35,7 @@
     <div class="nav__inner">
       <a class="nav__mark" href="/" aria-label="Home">SN</a>
       <nav aria-label="Primary">
-        <ul class="nav__links">
+        <ul class="nav__links" id="nav-links">
           <li><a href="/#about">About</a></li>
           <li><a href="/#projects">Projects</a></li>
           <li><a href="/#work">Work</a></li>
@@ -44,6 +44,10 @@
           <li><a href="/muse.html" class="is-active" aria-current="page">Muse</a></li>
         </ul>
       </nav>
+      <button class="nav__menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
       <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
@@ -67,42 +71,39 @@
           <span class="section__num">01</span>
           <h2 class="section__title">Books</h2>
         </header>
-        <!-- TODO: replace placeholders with real books. Mark the one you are reading with is-current. -->
+        <!-- Add books here. Mark the one you are reading with is-current; the second label is the genre. -->
         <ul class="ledger ledger--compact">
           <li class="entry reveal">
               <div class="entry__side">
                 <span class="entry__mark is-current">Reading</span>
-                <span class="entry__type">Book</span>
+                <span class="entry__type">Non-fiction</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Lorem Ipsum Dolor</h3>
-                <p class="entry__meta">Author Name</p>
-                <p class="entry__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="chips"><li>Philosophy</li><li>Design</li></ul>
+                <h3 class="entry__title">Psycho-Cybernetics</h3>
+                <p class="entry__meta">Dr. Maxwell Maltz</p>
+                <ul class="chips"><li>Psychology</li><li>Visualization</li></ul>
               </div>
           </li>
           <li class="entry reveal">
               <div class="entry__side">
                 <span class="entry__mark">Finished</span>
-                <span class="entry__type">Book</span>
+                <span class="entry__type">Fiction</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Consectetur Adipiscing</h3>
-                <p class="entry__meta">Author Name</p>
-                <p class="entry__desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                <ul class="chips"><li>Business</li><li>Product</li></ul>
+                <h3 class="entry__title">The Alchemist</h3>
+                <p class="entry__meta">Paulo Coelho</p>
+                <ul class="chips"><li>Journey</li><li>Self-discovery</li></ul>
               </div>
           </li>
           <li class="entry reveal">
               <div class="entry__side">
                 <span class="entry__mark">Finished</span>
-                <span class="entry__type">Book</span>
+                <span class="entry__type">Non-fiction</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Sed Do Eiusmod</h3>
-                <p class="entry__meta">Author Name</p>
-                <p class="entry__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="chips"><li>Psychology</li></ul>
+                <h3 class="entry__title">Meditations</h3>
+                <p class="entry__meta">Marcus Aurelius</p>
+                <ul class="chips"><li>Stoicism</li><li>Virtue</li></ul>
               </div>
           </li>
         </ul>
@@ -116,47 +117,29 @@
           <span class="section__num">02</span>
           <h2 class="section__title">Articles</h2>
         </header>
-        <!-- TODO: replace placeholders with real articles and set each href to the article URL. -->
+        <!-- Add articles here; set each href to the article URL. -->
         <ul class="ledger ledger--compact">
           <li class="reveal">
-            <a class="entry entry--link" href="#" target="_blank" rel="noopener">
-              <div class="entry__side">
-                <span class="entry__mark is-current">Latest</span>
-                <span class="entry__type">Article</span>
-              </div>
-              <div class="entry__main">
-                <h3 class="entry__title">Lorem ipsum dolor sit amet, consectetur <span class="entry__arrow" aria-hidden="true">↗</span></h3>
-                <p class="entry__meta">Publication · Author Name</p>
-                <p class="entry__desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                <ul class="chips"><li>Technology</li><li>Culture</li></ul>
-              </div>
-            </a>
-          </li>
-          <li class="reveal">
-            <a class="entry entry--link" href="#" target="_blank" rel="noopener">
+            <a class="entry entry--link" href="https://substack.com/home/post/p-195610559" target="_blank" rel="noopener">
               <div class="entry__side">
                 <span class="entry__mark">Read</span>
                 <span class="entry__type">Article</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Tempor incididunt ut labore et dolore <span class="entry__arrow" aria-hidden="true">↗</span></h3>
-                <p class="entry__meta">Publication · Author Name</p>
-                <p class="entry__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="chips"><li>Startups</li></ul>
+                <h3 class="entry__title">The Crime of Doing Nothing <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Notes from Underground · Substack</p>
               </div>
             </a>
           </li>
           <li class="reveal">
-            <a class="entry entry--link" href="#" target="_blank" rel="noopener">
+            <a class="entry entry--link" href="https://jamalnasim.blogspot.com/2026/09/the-ai-minerals-gap-how-world-can-meet.html" target="_blank" rel="noopener">
               <div class="entry__side">
                 <span class="entry__mark">Read</span>
                 <span class="entry__type">Article</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Magna aliqua ut enim ad minim <span class="entry__arrow" aria-hidden="true">↗</span></h3>
-                <p class="entry__meta">Publication · Author Name</p>
-                <p class="entry__desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                <ul class="chips"><li>Mental health</li></ul>
+                <h3 class="entry__title">The AI Minerals Gap: How the World Can Meet Increasing Critical Minerals Demand Driven by AI <span class="entry__arrow" aria-hidden="true">↗</span></h3>
+                <p class="entry__meta">Jamal I. Nasim</p>
               </div>
             </a>
           </li>
@@ -171,42 +154,36 @@
           <span class="section__num">03</span>
           <h2 class="section__title">Pursuits</h2>
         </header>
-        <!-- TODO: replace placeholders with real pursuits. -->
+        <!-- Add pursuits here. -->
         <ul class="ledger ledger--compact">
           <li class="entry reveal">
               <div class="entry__side">
                 <span class="entry__mark is-current">Ongoing</span>
-                <span class="entry__type">Pursuit</span>
+                <span class="entry__type">Game</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Lorem Ipsum</h3>
-                <p class="entry__meta">Since 2024</p>
-                <p class="entry__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="chips"><li>Health</li></ul>
+                <h3 class="entry__title">Chess</h3>
+                <p class="entry__desc">The game I most enjoy for strategic thinking.</p>
               </div>
           </li>
           <li class="entry reveal">
               <div class="entry__side">
                 <span class="entry__mark is-current">Ongoing</span>
-                <span class="entry__type">Pursuit</span>
+                <span class="entry__type">Sport</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Dolor Sit Amet</h3>
-                <p class="entry__meta">Since 2023</p>
-                <p class="entry__desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                <ul class="chips"><li>Craft</li></ul>
+                <h3 class="entry__title">Basketball &amp; Tennis</h3>
+                <p class="entry__desc">The sports I most enjoy playing to stay active.</p>
               </div>
           </li>
           <li class="entry reveal">
               <div class="entry__side">
-                <span class="entry__mark">Paused</span>
-                <span class="entry__type">Pursuit</span>
+                <span class="entry__mark is-current">Ongoing</span>
+                <span class="entry__type">Interest</span>
               </div>
               <div class="entry__main">
-                <h3 class="entry__title">Consectetur</h3>
-                <p class="entry__meta">Since 2022</p>
-                <p class="entry__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="chips"><li>Learning</li></ul>
+                <h3 class="entry__title">History</h3>
+                <p class="entry__desc">An interest in the people, events, and ideas that have shaped the world.</p>
               </div>
           </li>
         </ul>
@@ -221,6 +198,6 @@
     </div>
   </footer>
 
-  <script src="/script.js?v=11" defer></script>
+  <script src="/script.js?v=12" defer></script>
 </body>
 </html>
