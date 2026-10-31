@@ -25,8 +25,7 @@
   --card-bg: #ffffff;
   --card-blur: none;
   --pill-bg: transparent;
-  --prose-bg: transparent;
-  --prose-pad: 0;
+  --section-scrim: none;
   --footer-bg: transparent;
   --nav-bg: #ffffff;
   --nav-border: #e6eaed;
@@ -81,8 +80,7 @@
     --card-bg: rgba(26, 31, 35, 0.62);
     --card-blur: blur(16px);
     --pill-bg: rgba(26, 31, 35, 0.5);
-    --prose-bg: rgba(26, 31, 35, 0.62);
-    --prose-pad: 32px;
+    --section-scrim: linear-gradient(105deg, rgba(26, 31, 35, 0) 15%, rgba(26, 31, 35, 0.45) 75%);
     --footer-bg: rgba(26, 31, 35, 0.62);
     --nav-bg: rgba(255, 255, 255, 0.07);
     --nav-border: rgba(255, 255, 255, 0.18);
@@ -119,8 +117,7 @@
   --card-bg: rgba(26, 31, 35, 0.62);
   --card-blur: blur(16px);
   --pill-bg: rgba(26, 31, 35, 0.5);
-  --prose-bg: rgba(26, 31, 35, 0.62);
-  --prose-pad: 32px;
+  --section-scrim: linear-gradient(105deg, rgba(26, 31, 35, 0) 15%, rgba(26, 31, 35, 0.45) 75%);
   --footer-bg: rgba(26, 31, 35, 0.62);
   --nav-bg: rgba(255, 255, 255, 0.07);
   --nav-border: rgba(255, 255, 255, 0.18);
@@ -535,7 +532,14 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   top: 110px;
   align-self: start;
 }
-.section__head .section__title { font-size: clamp(40px, 4.5vw, 56px); }
+.section__head .section__title { margin-top: 8px; font-size: clamp(40px, 4.5vw, 56px); }
+.section__num {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
 .avatar img {
   display: block;
   width: 96px;
@@ -545,13 +549,21 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   object-fit: cover;
   object-position: 50% 30%;
 }
-.prose {
-  max-width: 62ch;
-  padding: var(--prose-pad);
-  background: var(--prose-bg);
-  backdrop-filter: var(--card-blur);
-  -webkit-backdrop-filter: var(--card-blur);
-  border-radius: 20px;
+.prose { max-width: 62ch; }
+
+/* Dark mode: the story sits straight on the gradient, so the light end is
+   gently dimmed across the section (faded top and bottom, no visible edge)
+   to keep the text at AA contrast. */
+#about { position: relative; isolation: isolate; padding-bottom: 72px; }
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--section-scrim);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+  pointer-events: none;
 }
 .prose p { color: var(--body); }
 .prose p + p { margin-top: 1.1em; }
@@ -644,7 +656,6 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .nav__links a { padding: 6px 10px; font-size: 13px; }
   .rail { padding: 0; border: 0; }
   .entry { padding: 24px; border-radius: 18px; }
-  .prose { padding: min(var(--prose-pad), 24px); }
   .btn--hero, .btn--hero-soft { padding: 15px 24px; }
   .footer__inner { flex-direction: column; }
 }
