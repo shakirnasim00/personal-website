@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 
   <!-- Apply saved theme before paint to avoid a flash -->
   <script>
@@ -80,32 +80,28 @@
 
     <!-- ───────────── About ───────────── -->
     <section class="section" id="about">
-      <div class="container">
-        <header class="section__top reveal">
+      <div class="container grid-2">
+        <header class="section__head reveal">
           <span class="eyebrow">01 · About</span>
-          <h2 class="section__title">A little <em>about me.</em></h2>
+          <h2 class="section__title">About</h2>
+          <picture class="avatar">
+            <source srcset="assets/shakir.webp" type="image/webp" />
+            <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
+          </picture>
         </header>
-        <div class="rail">
-          <div class="about reveal">
-            <picture class="avatar">
-              <source srcset="assets/shakir.webp" type="image/webp" />
-              <img src="assets/shakir.jpg" width="500" height="500" alt="Portrait of Shakir Nasim" />
-            </picture>
-            <div class="prose">
-              <p class="prose__lead">
-                I founded Circle, a healthier social media alternative aimed at solving
-                algorithmic addiction and fostering <em>real-life</em> connection.
-              </p>
-              <p>
-                I'm also a Business Development Representative at Corporate Traveller,
-                where I find, research, and qualify B2B leads.
-              </p>
-              <p>
-                Every project I take on follows one principle: make the human
-                experience better.
-              </p>
-            </div>
-          </div>
+        <div class="prose reveal">
+          <p class="prose__lead">
+            I founded Circle, a healthier social media alternative aimed at solving
+            algorithmic addiction and fostering <em>real-life</em> connection.
+          </p>
+          <p>
+            I'm also a Business Development Representative at Corporate Traveller,
+            where I find, research, and qualify B2B leads.
+          </p>
+          <p>
+            Every project I take on follows one principle: make the human
+            experience better.
+          </p>
         </div>
       </div>
     </section>
@@ -155,7 +151,6 @@
       <div class="container">
         <header class="section__top reveal">
           <span class="eyebrow">03 · Experience</span>
-          <h2 class="section__title">Where I've <em>worked.</em></h2>
         </header>
         <ol class="rail cards">
           <li class="entry reveal">
@@ -203,7 +198,6 @@
       <div class="container">
         <header class="section__top reveal">
           <span class="eyebrow">04 · Writing</span>
-          <h2 class="section__title">Things I've <em>written.</em></h2>
         </header>
         <!-- Add new Substack posts to the top of this list -->
         <ul class="rail cards">
@@ -256,6 +250,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6" defer></script>
+  <script src="script.js?v=7" defer></script>
 </body>
 </html>
